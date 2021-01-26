@@ -90,6 +90,15 @@ export default {
         null
       )
         .then((success) => {
+          if (type == "comment") {
+            const index = this.comments.findIndex(
+              (comment) => comment.id == id
+            );
+            this.comments.splice(index, 1);
+          } else {
+            const index = this.posts.findIndex((post) => post.id == id);
+            this.posts.splice(index, 1);
+          }
           console.log(success);
           alert("signalement annulé");
         })

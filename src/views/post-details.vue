@@ -71,7 +71,7 @@ export default {
         .then(success => {
           console.log(success);
           alert("article supprimé");
-         
+         this.$router.push({ path: '/articles' });
         })
         .catch(err => {
           console.log('Une erreur est survenue !', err);
