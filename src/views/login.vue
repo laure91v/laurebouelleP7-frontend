@@ -176,29 +176,78 @@ text-align: center;
 font-weight: bold;
 }
 
-@media all and (max-width: 590px) {
-  #pseudo {
-    margin-right: 50%;
-  }
-  #password {
-    margin-right: 50%;
-  }
-  #connection {
-    margin-right: 70%;
-  }
+@media all and (max-width: 836px) {
+#deuxParties {
+  display: flex;
+  
+  flex-direction: column;
+ 
 }
-@media all and (max-width: 472px) {
+h1 {
+  font-size: 25px;
+  margin-left: 50px;
+}
+}
+@media all and (max-width: 541px) {
+h1 {
+  
+  margin-left: 20px;
+  font-size: 15px;
+}
+#sous img {
+ 
+  height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 185px;
+  padding-top: 15px;
+
+}
+#troisPartiesGauche {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 10px 5px 5px grey;
+  border:grey 1px solid;
+ margin-left: 20px;
+ width: 300px;
+ margin-top: 20px;
+ 
+}
+#pseudo {
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  background-color: rgb(240, 238, 238);
+  width: 200px;
+}
+#password {
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  
+  background-color: rgb(240, 238, 238);
+  width: 200px;
+}
+}
+@media all and (max-width: 541px) {
   h1 {
-    margin-left: 5%;
-  }
+  
+  margin-left: 10px;
+  font-size: 12px;
 }
-@media all and (max-width: 460px) {
-  h1 {
-    text-align: center;
-    color: black;
-    font-size: 30px;
-    justify-content: center;
-  }
+#troisPartiesGauche {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 10px 5px 5px grey;
+  border:grey 1px solid;
+ margin-left: 8px;
+ width: 280px;
+ margin-top: 20px;
+ 
 }
+}
+
+
 </style>
 

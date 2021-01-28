@@ -14,7 +14,7 @@
       <div id="profil">
         <img
           id="imgPersonn"
-          src="../assets/iconepersonv3.png"
+          src="../assets/iconepersonv2.png"
           alt="logo personnage"
           title="logo personnage"
         />

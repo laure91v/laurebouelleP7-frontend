@@ -108,6 +108,10 @@ font-size: 12px;
 
   margin-left: 20px;
 }
+#post-details-ctnr button{
+background-color: rgb(247, 117, 117);
+}
+
 @media all and (max-width: 892px) {
 #post-details-ctnr p {
 height: auto;

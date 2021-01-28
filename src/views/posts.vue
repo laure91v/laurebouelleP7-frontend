@@ -59,6 +59,10 @@ export default  {
 </script>
 
 <style>
+.posts {
+  background-color: rgb(241,239,239);
+  ;
+}
   .posts article {
     box-shadow: 1px 1px 4px rgb(49, 49, 49);
     margin: 10px;

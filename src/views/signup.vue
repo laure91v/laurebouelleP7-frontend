@@ -183,36 +183,113 @@ h1 {
   margin-top: 20px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-@media all and (max-width: 653px) {
-  #seConnecter {
-    margin-right: 65%;
-  }
-  #password {
-    margin-left: 5%;
-  }
-  h1 {
-    color: black;
-    margin-left: 5%;
+@media all and (max-width: 896px) {
+#seConnecter {
+width: 150px;
+  font-size: 17px;
+  text-align: center;
+  margin-left: 100px;
+}
+}
+@media all and (max-width: 845px) {
+ 
+#touteLaPartie {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right:250px;
+  box-shadow: 10px 5px 5px grey;
+  border:grey 1px solid;
+  width:400px;
+   
+}
+h1 {
+  color: black;
+  margin-left: 30px;
+  margin-top: 30px;
+  font-size: 25px;;
   }
 }
-@media all and (max-width: 460px) {
-  h1 {
-    text-align: center;
-    color: black;
-    font-size: 30px;
-    justify-content: center;
+@media all and (max-width: 560px) {
+h1 {
+  color: black;
+  margin-left: 10px;
+  margin-top: 30px;
+  font-size: 25px;;
+  }
+#sous img {
+ 
+  height: 40px;
+  padding-left: 10px;
+  padding-right: 5px;
+  width: 185px;
+  padding-top: 15px;
+
+}
+}
+@media all and (max-width: 443px) {
+#age {
+  background-color: rgb(210, 214, 216);
+ width: 200px;
+ height: 30px;
+ border-radius: 10%;
+ border: 1px grey solid;
+ 
+}
+#pseudo {
+  background-color: rgb(210, 214, 216);
+ width: 200px;
+ height: 30px;
+ border-radius: 10%;
+ border: 1px grey solid;
+}
+#email {
+  background-color: rgb(210, 214, 216);
+  width: 200px;
+ height: 30px;
+ border-radius: 10%;
+ border: 1px grey solid;
+}
+#password {
+  background-color: rgb(210, 214, 216);
+  width: 200px;
+ height: 30px;
+ border-radius: 10%;
+ border: 1px grey solid;
+}
+#touteLaPartie {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right:250px;
+  box-shadow: 10px 5px 5px grey;
+  border:grey 1px solid;
+  width:250px;
+   
+}
+h1 {
+  color: black;
+  margin-left: 5px;
+  margin-top: 30px;
+  font-size: 15px;;
+  }
+  #seConnecter {
+width: 150px;
+  font-size: 17px;
+  text-align: center;
+  margin-left: 50px;
+}
+}
+@media all and (max-width: 355px) {
+h1 {
+  color: black;
+  margin-left: 0;
+  margin-top: 30px;
+  font-size: 12px;;
   }
 }
 </style>

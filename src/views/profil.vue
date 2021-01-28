@@ -1,88 +1,90 @@
 <template>
-  <div class="profile">
+  <div>
     <HeaderNav />
-    <h1>Mes infos</h1>
-    <form @submit="updateUser">
-      <p id="pseudoTotal">
-        <label for="pseudo">Mon pseudo</label>
-        <input v-model="user.pseudo" type="text" id="pseudo" />
-      </p>
-      <p v-if="errorMessages[0]" class="invalid-field-msg">
-        {{ errorMessages[0] }}
-      </p>
-
-      <p id="emailTotal">
-        <label for="email">Mon adresse mail</label>
-        <input v-model="user.email" type="email" id="email" />
-      </p>
-
-      <p v-if="errorMessages[1]" class="invalid-field-msg">
-        {{ errorMessages[1] }}
-      </p>
-
-      <p id="passwordTotal">
-        <label for="password">Nouveau mot de passe</label>
-        <input
-          v-model="user.newPassword"
-          type="password"
-          id="password"
-          placeholder="Laisser vide par défaut"
-        />
-      </p>
-      <p v-if="errorMessages[2]" class="invalid-field-msg">
-        {{ errorMessages[2] }}
-      </p>
-
-      <div v-if="user.newPassword">
-        <label for="password-confirm"
-          >Nouveau mot de passe (confirmation)</label
-        >
-        <input
-          v-model="newPasswordConfirm"
-          type="password"
-          id="password-confirm"
-        />
-        <p
-          v-if="user.newPassword != newPasswordConfirm"
-          class="invalid-field-msg"
-        >
-          Les mots de passe doivent être identiques
+    <div class="profile">
+      <h1>Mes infos</h1>
+      <form @submit="updateUser">
+        <p id="pseudoTotal">
+          <label for="pseudo">Mon pseudo</label>
+          <input v-model="user.pseudo" type="text" id="pseudo" />
         </p>
-      </div>
+        <p v-if="errorMessages[0]" class="invalid-field-msg">
+          {{ errorMessages[0] }}
+        </p>
 
-      <p id="ageTotal">
-        <label for="age">Mon age (optionnel)</label>
-        <input v-model="user.age" type="number" id="age" />
-      </p>
+        <p id="emailTotal">
+          <label for="email">Mon adresse mail</label>
+          <input v-model="user.email" type="email" id="email" />
+        </p>
 
-      <p v-if="errorMessages[3]" class="invalid-field-msg">
-        {{ errorMessages[3] }}
-      </p>
+        <p v-if="errorMessages[1]" class="invalid-field-msg">
+          {{ errorMessages[1] }}
+        </p>
 
-      <input
-        id="modifier"
-        type="submit"
-        value="Enregistrer les modifications"
-      />
-    </form>
-    <input
-      id="supprimerCompte"
-      @click="deleteAccount"
-      type="button"
-      value="Supprimer votre compte"
-    />
+        <p id="passwordTotal">
+          <label for="password">Nouveau mot de passe</label>
+          <input
+            v-model="user.newPassword"
+            type="password"
+            id="password"
+            placeholder="Laisser vide par défaut"
+          />
+        </p>
+        <p v-if="errorMessages[2]" class="invalid-field-msg">
+          {{ errorMessages[2] }}
+        </p>
 
-    <form v-if="displayConfirmDeleteForm" @submit="confirmDeleteAcount">
-      <p>
-        <label for="email-delete-confirm">Confirmer votre email</label>
+        <div v-if="user.newPassword">
+          <label for="password-confirm"
+            >Nouveau mot de passe (confirmation)</label
+          >
+          <input
+            v-model="newPasswordConfirm"
+            type="password"
+            id="password-confirm"
+          />
+          <p
+            v-if="user.newPassword != newPasswordConfirm"
+            class="invalid-field-msg"
+          >
+            Les mots de passe doivent être identiques
+          </p>
+        </div>
+
+        <p id="ageTotal">
+          <label for="age">Mon age (optionnel)</label>
+          <input v-model="user.age" type="number" id="age" />
+        </p>
+
+        <p v-if="errorMessages[3]" class="invalid-field-msg">
+          {{ errorMessages[3] }}
+        </p>
+
         <input
-          v-model="emailDeleteConfirm"
-          type="email"
-          id="email-delete-confirm"
+          id="modifier"
+          type="submit"
+          value="Enregistrer les modifications"
         />
-      </p>
-      <input type="submit" value="Supprimer définitivement ?" />
-    </form>
+      </form>
+      <input
+        id="supprimerCompte"
+        @click="deleteAccount"
+        type="button"
+        value="Supprimer votre compte"
+      />
+
+      <form v-if="displayConfirmDeleteForm" @submit="confirmDeleteAcount">
+        <p>
+          <label for="email-delete-confirm">Confirmer votre email</label>
+          <input
+            v-model="emailDeleteConfirm"
+            type="email"
+            id="email-delete-confirm"
+          />
+        </p>
+        <input id="supprimerDef" type="submit" value="Supprimer définitivement ?" />
+      </form>
+    </div>
     <Popup
       v-if="displayPopup"
       :msg="popupMsg"
@@ -203,7 +205,6 @@ export default {
         .catch((err) => {
           console.log("Une erreur est survenue !", err);
           alert("Modifier pseudo ou email car déjà existant");
-          
         });
     },
 
@@ -241,38 +242,68 @@ export default {
   font-style: italic;
 }
 
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 250px;
+  margin-right:250px;
+  box-shadow: 10px 5px 5px grey;
+  border:grey 1px solid;
+}
 #age {
-  background-color: rgb(210, 214, 216);
-  margin-left: 50px;
+ background-color: rgb(210, 214, 216);
+  width: 300px;
+ height: 30px;
+ border-radius: 10%;
+ border: 1px grey solid;
 }
 #ageTotal {
   margin-left: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 #pseudo {
   background-color: rgb(210, 214, 216);
-  margin-left: 103px;
+  width: 300px;
+ height: 30px;
+ border-radius: 10%;
+ border: 1px grey solid;
 }
 #pseudoTotal {
   margin-left: 20px;
+  display: flex;
+  flex-direction: column;
 }
 #email {
   background-color: rgb(210, 214, 216);
-  margin-left: 70px;
+  width: 300px;
+ height: 30px;
+ border-radius: 10%;
+ border: 1px grey solid;
 }
 #emailTotal {
   margin-left: 20px;
+  display: flex;
+  flex-direction: column;
 }
 #password {
   background-color: rgb(210, 214, 216);
-  margin-left: 40px;
+  width: 300px;
+ height: 30px;
+ border-radius: 10%;
+ border: 1px grey solid;
 }
 #passwordTotal {
   margin-left: 20px;
+  display: flex;
+  flex-direction: column;
 }
 #modifier {
-  margin-left: 20px;
-  margin-top: 20px;
+  align-items: center;
   background-color: rgb(247, 117, 117);
   font-style: italic;
 }
@@ -282,4 +313,78 @@ export default {
   background-color: rgb(247, 117, 117);
   font-style: italic;
 }
+form label {
+  text-align: center;
+}
+#modifier {
+  background-color:  rgb(205, 73, 100);
+ margin-left: 80px;
+}
+#supprimerCompte {
+background-color: rgb(205, 73, 100);
+margin-bottom: 20px;
+}
+#supprimerDef {
+background-color: rgb(205, 73, 100);
+
+}
+@media all and (max-width: 847px) {
+  .profile {
+ 
+  margin-left: 50px;
+  
+  
+}
+}
+
+@media all and (max-width: 660px) {
+
+.profile {
+ width: 400px;
+  margin-left: 20px;
+  
+  
+}
+}
+@media all and (max-width: 444px) {
+#age {
+ background-color: rgb(210, 214, 216);
+  width: 150px;
+ height: 30px;
+ border-radius: 10%;
+ border: 1px grey solid;
+}
+#pseudo {
+  background-color: rgb(210, 214, 216);
+  width: 150px;
+ height: 30px;
+ border-radius: 10%;
+ border: 1px grey solid;
+}
+#email {
+  background-color: rgb(210, 214, 216);
+  width: 150px;
+ height: 30px;
+ border-radius: 10%;
+ border: 1px grey solid;
+}
+#password {
+  background-color: rgb(210, 214, 216);
+  width: 150px;
+ height: 30px;
+ border-radius: 10%;
+ border: 1px grey solid;
+}
+#modifier {
+  background-color:  rgb(205, 73, 100);
+ margin-left: 30px;
+}
+.profile {
+ width: 250px;
+  margin-left: 20px;
+  
+  
+}
+}
+
 </style>

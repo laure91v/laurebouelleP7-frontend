@@ -3,7 +3,7 @@
     <form @submit="createComment">
       <p>N'hésiter pas et commenter cet article</p>
       <textarea placeholder="Description" v-model="newComment.text"></textarea>
-      <input type="submit" value="Publier ce commentaire" />
+      <input class="publierButton" type="submit" value="Publier ce commentaire" />
     </form>
     <h3>commentaires publiés :</h3>
     <article v-for="comment in comments" :key="comment.id">
@@ -179,7 +179,7 @@ form {
   margin-left: 20px;
 }
 .comments-list input {
-  background-color: rgb(247, 117, 117);
+  
   font-style: italic;
   height: 20px;
   width: 300px;
@@ -192,26 +192,74 @@ form h3 {
 }
 form input {
   margin-bottom: 10px;
+  
 }
-
+.publierButton {
+  background-color: rgb(25, 15, 172);
+  color: white;
+}
 article p {
+  
+  width: 700px;
+}
+article button {
+  font-size:14px;
+  background-color: rgb(247, 117, 117);
+}
+@media all and (max-width: 761px) {
+article p {  
+  width: 500px;
+}
+}
+@media all and (max-width: 565px) {
+article p {  
+  width: 400px;
+}
+form textarea {
+  padding-top: 10px;
+  padding-bottom: 50px;
+  padding-right: 50px;
+  margin-right: 20px;
   margin-left: 20px;
+  width: 250px;
 }
-
-
-
-
-
-@media all and (max-width: 580px) {
-  form p {
-    margin-top: 50px;
-    margin-left: 180px;
-  }
+form {
+  display: flex;
+  flex-direction: column;
+ 
+  align-items: center;
+  border: grey 2px solid;
+  width: 350px;
+  margin-top: 20px;
 }
-@media all and (max-width: 470px) {
-  form p {
-    margin-top: 50px;
-    margin-left: 100px;
-  }
+}
+@media all and (max-width: 457px) {
+article p {  
+  width: 200px;
+}
+form textarea {
+  padding-top: 10px;
+  padding-bottom: 50px;
+  padding-right: 50px;
+  margin-right: 20px;
+  margin-left: 20px;
+  width: 100px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+ 
+  align-items: center;
+  border: grey 2px solid;
+  width: 200px;
+  margin-top: 20px;
+}
+.comments-list input {
+  
+  font-style: italic;
+  height: 20px;
+  width: 150px;
+  margin-top: 10px;
+}
 }
 </style>

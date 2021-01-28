@@ -1,12 +1,14 @@
 <template>
-  <div>
+  <div id="mainMenu">
      <HeaderNav />
+     
     <h1>Créer un nouvel article</h1>
     <form @submit="createPost">
       <input placeholder="Titre" v-model="newPost.title" />
       <textarea placeholder="Description" v-model="newPost.text"></textarea>
       <input class="publier" type="submit" value="Publier cet article" />
     </form>
+     
   </div>
 </template>
 
@@ -62,6 +64,10 @@ export default  {
 </script>
 
 <style scoped>
+#mainmenu {
+  background-color: rgb(241,239,239);
+  height: 1000px;
+}
 h1 {
   text-align: center;
 }
@@ -78,9 +84,11 @@ textarea, input{
 input {
   margin-top: 20px;
   margin-bottom: 20px;
+ 
 }
 .publier {
-  background-color: rgb(247, 117, 117);
+   background-color: rgb(25, 15, 172);
+  color: white;
   font-style: italic;
   height:20px;
   width: 300px;
@@ -89,6 +97,7 @@ form textarea {
   padding-top:20px;
   padding-bottom: 100px;
   padding-right: 50px;
+  background-color: rgb(228, 227, 227);
 }
 
 @media all and (max-width: 892px) {
@@ -96,7 +105,13 @@ form textarea {
   height: auto;
   width: auto;
 }}
-
+@media all and (max-width: 334px) {
+.publier {
+  margin-top: 20px;
+  margin-bottom: 20px;
+ width: 150px;
+}
+}
 
 </style>
 
