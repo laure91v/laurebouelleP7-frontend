@@ -93,8 +93,8 @@ article {
 }
 #post-details-ctnr p {
   height: auto;
-  width: 800px;
-  background-color: rgb(250, 236, 244);
+  width: 700px;
+  background-color: rgb(202, 181, 181);
   padding: 20px;
   border-radius: 10px;
   margin-left: 20px;

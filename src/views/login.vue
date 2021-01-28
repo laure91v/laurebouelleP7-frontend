@@ -2,138 +2,203 @@
   <div>
     <div id="sous">
       <img
-      src="../assets/icon-left-font-monochrome-black.png"
-      alt="logo gauche"
-      title="logo gauche"/>
-    <h1>page d'accueil-connection</h1>
+        src="../assets/icon-left-font-monochrome-blackv2.png"
+        alt="logo gauche"
+        title="logo gauche"
+      />
+      <h1>PAGE DE CONNECTION</h1>
     </div>
-    <form @submit="login">
-      <input id="pseudo" placeholder="votre pseudo" v-model="user.pseudo" />
-      <input id="password" placeholder="votre mot de passe" v-model="user.password" />
-      <input id="connection" type="submit" value="se connecter" />
-    </form>
-    <router-link id= "inscription" to="/inscription">~ pour créer un compte, cliquez ici. ~</router-link>
+    <div id="deuxParties">
+      <div id="troisPartiesGauche">
+        <span> Connectez-vous</span>
+        <p>et venez lire les nouveaux articles</p>
+        <form @submit="login" id="deuxInputs">
+          <input id="pseudo" placeholder="votre pseudo" v-model="user.pseudo" />
+          <input
+            id="password"
+            placeholder="votre mot de passe"
+            v-model="user.password"
+            type="password"
+          />
+          <input id="connection" type="submit" value="se connecter" />
+        </form>
+      </div>
+      <div id="PartieVersInscription">
+        <span> Pas encore client? </span>
+        <p>n'hésitez plus et venez rédiger vos articles sur notre site</p>
+        <router-link id="inscription" to="/inscription">
+          > Créer votre compte</router-link
+        >
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import {AJAX_GET_POST} from '../services/ajax';
-export default  {
-    name: 'login',
-    props: [],
-    mounted() {
- 
-    },
-    data: () =>  {
-      return {
-        user : {
-          pseudo:"",
-          password:"",
+import { AJAX_GET_POST } from "../services/ajax";
+export default {
+  name: "login",
+  props: [],
+  mounted() {},
+  data: () => {
+    return {
+      user: {
+        pseudo: "",
+        password: "",
+      },
+    };
+  },
+  methods: {
+    login(evt) {
+      evt.preventDefault();
+      AJAX_GET_POST("http://localhost:3000/api/auth/login", "POST", this.user)
+        .then((userData) => {
+          console.log("Utilisateur inscrit !", userData);
+          localStorage.setItem("groupomania_P7", JSON.stringify(userData));
 
-        },
-      }
-    },
-    methods: {
-      login(evt) {
-        evt.preventDefault();
-         AJAX_GET_POST('http://localhost:3000/api/auth/login', 'POST', this.user)
-        .then(userData => {
-          console.log('Utilisateur inscrit !', userData);
-          localStorage.setItem('groupomania_P7', JSON.stringify(userData));
-
-          this.$router.push({ path: 'articles' });
+          this.$router.push({ path: "articles" });
         })
-        .catch(err => {
-          
+        .catch((err) => {
           alert(JSON.parse(err.response).message);
         });
-
-      }
     },
-    computed: {
- 
-    }
-}
+  },
+  computed: {},
+};
 </script>
 
 <style scoped>
 #pseudo {
   margin-top: 10px;
   padding-top: 5px;
-  padding-bottom:5px;
-  margin-right: 60%;
-background-color: rgb(240, 238, 238);
+  padding-bottom: 5px;
+
+  background-color: rgb(240, 238, 238);
+  width: 400px;
 }
 #password {
   margin-top: 10px;
   padding-top: 5px;
-  padding-bottom:5px;
-  margin-right: 60%;
-  background-color:rgb(240, 238, 238);
-}
-form {
-  display: flex;
-  flex-direction: column;
-  margin-left: 20px;
+  padding-bottom: 5px;
+  
+  background-color: rgb(240, 238, 238);
+  width: 400px;
 }
 
 #connection {
-  background-color: rgb(247, 117, 117);
-  margin-right: 80%;
+  background-color: rgb(205,73,100);
+  width: 150px;
   margin-top: 10px;
   font-size: 17px;
   margin-bottom: 20px;
+}
 
-}
-#inscription {
-  margin-left: 20px;
-  margin-top: 50px;
-    font-size: 20px;
-  color:  rgb(73, 19, 19);
-}
 #sous {
   display: flex;
-  
-  height: 100px;
-  background-color: rgb(201, 6, 65);
-  text-align: center
+height: 102px;
+  background-color: rgb(205,73,100);
 }
 #sous img {
-  height: 100px;
+  height: 60px;
   padding-left: 10px;
   padding-right: 10px;
-  width: 150px;
+  width: 278px;
+  padding-top: 15px;
 }
 h1 {
-  color: black;
-  margin-left: 18%;
-  }
-@media all and (max-width: 590px) {
-#pseudo { 
-  margin-right: 50%;
+ color: black;
+  margin-left: 100px;
+  margin-top: 30px;
 }
-#password {
-   margin-right: 50%;
-  }
-#connection {  
-  margin-right: 70%;
+/* span,p  et cliquer inscription*/
+#PartieVersInscription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  background-color: rgb(219, 221, 223);
+ margin-left: 10px;
+  width: 300px;
+  height: 300px;
+  padding-top: 10px;
+}
+/*pas encore client*/
+#PartieVersInscription span {
+  font-size: 25px;
+  color: black;
+  font-weight: bold;
+}
+#PartieVersInscription p {
+  padding: 20px;
+  text-align: center;
+}
+/*cliquer lien vers client*/
+#inscription {
+  
+  border-radius: 5px;
+  font-size: 20px;
+  background-color: rgb(25, 15, 172);
+  color: white;
+  margin-top: 50px;
+  padding: 5px;
+}
+/* deuxinputs + vers inscription*/
+#deuxParties {
+  display: flex;
+  
+  justify-content: space-around;
+ 
+}
+#deuxInputs {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
 }
 
+#troisPartiesGauche {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 10px 5px 5px grey;
+  border:grey 1px solid;
+ margin-left: 20px;
+ width: 500px;
+ margin-top: 20px;
+ 
+}
+#troisPartiesGauche span {
+  font-size: 25px;
+text-align: center;
+font-weight: bold;
+}
+#troisPartiesGauche p {
+  font-size: 20px;
+text-align: center;
+font-weight: bold;
+}
+
+@media all and (max-width: 590px) {
+  #pseudo {
+    margin-right: 50%;
+  }
+  #password {
+    margin-right: 50%;
+  }
+  #connection {
+    margin-right: 70%;
+  }
 }
 @media all and (max-width: 472px) {
   h1 {
     margin-left: 5%;
   }
-  }
+}
 @media all and (max-width: 460px) {
-h1 {
-  text-align: center;
-  color: black;
- font-size: 30px;
-justify-content: center;
-
+  h1 {
+    text-align: center;
+    color: black;
+    font-size: 30px;
+    justify-content: center;
   }
-
 }
 </style>
 

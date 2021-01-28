@@ -1,18 +1,29 @@
 <template>
   <header id="entete">
     <img
-      src="../assets/icon-left-font-monochrome-black.png"
+      src="../assets/icon-left-font-monochrome-blackv2.png"
       alt="logo gauche"
-      title="logo gauche"/>
+      title="logo gauche"
+    />
 
     <nav id="liensConnections">
-      <router-link to="/articles">Les articles<br />disponibles</router-link>
-      <router-link to="/nouvelarticle"
-        >Ecrire<br />un nouvel article</router-link>
-
-      <router-link to="/profil">Mon profil</router-link>
-      <router-link v-if="storedData.isAdmin" to="/moderation">Modération</router-link>
-      <button @click="logout">Déconnexion></button>
+      <router-link id="articles" to="/articles">Les articles<br />disponibles</router-link>
+      <router-link id ="nouvelArticle" to="/nouvelarticle"
+        >Ecrire<br />un nouvel article</router-link
+      >
+      <div id="profil">
+        <img
+          id="imgPersonn"
+          src="../assets/iconepersonv3.png"
+          alt="logo personnage"
+          title="logo personnage"
+        />
+        <router-link to="/profil">Mon profil</router-link>
+      </div>
+      <router-link v-if="storedData.isAdmin" to="/moderation"
+        >Modération</router-link
+      >
+      <button @click="logout">> Se déconnecter</button>
     </nav>
   </header>
 </template>
@@ -44,26 +55,40 @@ export default {
 #entete {
   display: flex;
   justify-content: space-around;
-  height: 100px;
-  background-color: rgb(201, 6, 65);
+  height: 102px;
+  background-color: rgb(205, 73, 100);
 }
 
 #entete img {
-  height: 100px;
+  height: 60px;
+  width: 278;
   padding-left: 10px;
   padding-right: 10px;
-  width: 150px;
+  padding-top: 15px;
 }
-
+#imgPersonn {
+  width: 20px;
+  height: 15px;
+  padding-bottom: 5px;
+}
+#profil {
+  border: grey 2px solid;
+  display: flex;
+  flex-direction: column;
+  max-height: 100px;
+  align-items: center;
+  border-radius: 10%;
+}
 nav {
   display: flex;
-  align-items: center;
 }
 
 nav > * {
-  padding: 15px;
+  margin: 10px;
   text-align: center;
   font-weight: bold;
+  
+   background-color: rgb(209, 85, 116);
 }
 
 nav div:hover {
@@ -73,9 +98,27 @@ nav div:hover {
 nav button {
   display: flex;
   align-items: center;
-  margin-left: 50px;
-  background-color: rgb(201, 6, 65);
+  margin-left: 60px;
+  font-size: 15px;
+  
 }
+#articles {
+  display: flex;
+  text-align: center;
+  font-size: 20px;
+  border: grey 2px solid;
+  border-radius: 10%;
+  
+  align-items: center;
+}
+#nouvelArticle {
+   display: flex;
+  font-size: 20px;
+  border: grey 2px solid;
+  border-radius: 10%;
+   align-items: center;
+}
+
 
 @media all and (max-width: 624px) {
   nav button {
@@ -114,7 +157,6 @@ nav > * {
   nav > * {
     font-size: 10px;
   }
-   
 }
 </style>
 

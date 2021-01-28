@@ -1,12 +1,11 @@
 <template>
   <div class="comments-list">
     <form @submit="createComment">
-      <p>- Commenter cet article -</p>
+      <p>N'hésiter pas et commenter cet article</p>
       <textarea placeholder="Description" v-model="newComment.text"></textarea>
       <input type="submit" value="Publier ce commentaire" />
-      <h3>commentaires publiés :</h3>
     </form>
-
+    <h3>commentaires publiés :</h3>
     <article v-for="comment in comments" :key="comment.id">
       <!--LA LIAISON ENTRE CHAQUE comment DE comments-Pour expliquer à Vue comment suivre l’identité de chaque nœud, utiliser un key   -->
       <h3>
@@ -115,7 +114,7 @@ export default {
         .then((success) => {
           console.log(success);
           alert("commentaire supprimé");
-          this.$router.push({ path: '/articles' });
+          this.$router.push({ path: "/articles" });
         })
         .catch((err) => {
           console.log("Une erreur est survenue !", err);
@@ -146,14 +145,33 @@ export default {
 
 <style scoped>
 form p {
-  margin-top: 50px;
-  margin-left: 230px;
+  margin-top: 20px;
+
+  font-size: 20px;
 }
 form textarea {
   padding-top: 10px;
   padding-bottom: 50px;
   padding-right: 50px;
   margin-right: 20px;
+  margin-left: 20px;
+  width: 400px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+ 
+  align-items: center;
+  border: grey 2px solid;
+  width: 500px;
+  margin-top: 20px;
+}
+.comments-list {
+  background-color: rgb(241, 239, 239);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .comments-list form {
   display: flex;
@@ -172,6 +190,17 @@ form h3 {
   margin-left: 20px;
   margin-top: 40px;
 }
+form input {
+  margin-bottom: 10px;
+}
+
+article p {
+  margin-left: 20px;
+}
+
+
+
+
 
 @media all and (max-width: 580px) {
   form p {
