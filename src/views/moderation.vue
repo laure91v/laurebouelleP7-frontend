@@ -19,7 +19,7 @@
     </article>
     <hr />
     <h2>Commentaires</h2>
-    <article v-for="comment in comments" :key="comment.id + '_comments'"> 
+    <article v-for="comment in comments" :key="comment.id + '_comments'">
       <h3>{{ comment.title }}</h3>
       <p>{{ comment.text }}</p>
       <button @click="unsignal(comment.id, 'comment')">
@@ -42,7 +42,6 @@ export default {
   props: [],
   mounted() {
     this.storedData = JSON.parse(localStorage.getItem("groupomania_P7"));
-
     this.loadSignaled("post");
     this.loadSignaled("comment");
   },

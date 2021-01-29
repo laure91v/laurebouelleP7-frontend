@@ -11,16 +11,13 @@
         <p v-if="errorMessages[0]" class="invalid-field-msg">
           {{ errorMessages[0] }}
         </p>
-
         <p id="emailTotal">
           <label for="email">Mon adresse mail</label>
           <input v-model="user.email" type="email" id="email" />
         </p>
-
         <p v-if="errorMessages[1]" class="invalid-field-msg">
           {{ errorMessages[1] }}
         </p>
-
         <p id="passwordTotal">
           <label for="password">Nouveau mot de passe</label>
           <input
@@ -33,7 +30,6 @@
         <p v-if="errorMessages[2]" class="invalid-field-msg">
           {{ errorMessages[2] }}
         </p>
-
         <div v-if="user.newPassword">
           <label for="password-confirm"
             >Nouveau mot de passe (confirmation)</label
@@ -50,16 +46,13 @@
             Les mots de passe doivent être identiques
           </p>
         </div>
-
         <p id="ageTotal">
           <label for="age">Mon age (optionnel)</label>
           <input v-model="user.age" type="number" id="age" />
         </p>
-
         <p v-if="errorMessages[3]" class="invalid-field-msg">
           {{ errorMessages[3] }}
         </p>
-
         <input
           id="modifier"
           type="submit"
@@ -72,7 +65,6 @@
         type="button"
         value="Supprimer votre compte"
       />
-
       <form v-if="displayConfirmDeleteForm" @submit="confirmDeleteAcount">
         <p>
           <label for="email-delete-confirm">Confirmer votre email</label>
@@ -82,7 +74,11 @@
             id="email-delete-confirm"
           />
         </p>
-        <input id="supprimerDef" type="submit" value="Supprimer définitivement ?" />
+        <input
+          id="supprimerDef"
+          type="submit"
+          value="Supprimer définitivement ?"
+        />
       </form>
     </div>
     <Popup
@@ -249,16 +245,16 @@ export default {
   align-items: center;
   margin-top: 10px;
   margin-left: 250px;
-  margin-right:250px;
+  margin-right: 250px;
   box-shadow: 10px 5px 5px grey;
-  border:grey 1px solid;
+  border: grey 1px solid;
 }
 #age {
- background-color: rgb(210, 214, 216);
+  background-color: rgb(210, 214, 216);
   width: 300px;
- height: 30px;
- border-radius: 10%;
- border: 1px grey solid;
+  height: 30px;
+  border-radius: 10%;
+  border: 1px grey solid;
 }
 #ageTotal {
   margin-left: 20px;
@@ -269,9 +265,9 @@ export default {
 #pseudo {
   background-color: rgb(210, 214, 216);
   width: 300px;
- height: 30px;
- border-radius: 10%;
- border: 1px grey solid;
+  height: 30px;
+  border-radius: 10%;
+  border: 1px grey solid;
 }
 #pseudoTotal {
   margin-left: 20px;
@@ -281,9 +277,9 @@ export default {
 #email {
   background-color: rgb(210, 214, 216);
   width: 300px;
- height: 30px;
- border-radius: 10%;
- border: 1px grey solid;
+  height: 30px;
+  border-radius: 10%;
+  border: 1px grey solid;
 }
 #emailTotal {
   margin-left: 20px;
@@ -293,9 +289,9 @@ export default {
 #password {
   background-color: rgb(210, 214, 216);
   width: 300px;
- height: 30px;
- border-radius: 10%;
- border: 1px grey solid;
+  height: 30px;
+  border-radius: 10%;
+  border: 1px grey solid;
 }
 #passwordTotal {
   margin-left: 20px;
@@ -317,74 +313,64 @@ form label {
   text-align: center;
 }
 #modifier {
-  background-color:  rgb(205, 73, 100);
- margin-left: 80px;
+  background-color: rgb(205, 73, 100);
+  margin-left: 80px;
 }
 #supprimerCompte {
-background-color: rgb(205, 73, 100);
-margin-bottom: 20px;
+  background-color: rgb(205, 73, 100);
+  margin-bottom: 20px;
 }
 #supprimerDef {
-background-color: rgb(205, 73, 100);
-
+  background-color: rgb(205, 73, 100);
 }
 @media all and (max-width: 847px) {
   .profile {
- 
-  margin-left: 50px;
-  
-  
-}
+    margin-left: 50px;
+  }
 }
 
 @media all and (max-width: 660px) {
-
-.profile {
- width: 400px;
-  margin-left: 20px;
-  
-  
-}
+  .profile {
+    width: 400px;
+    margin-left: 20px;
+  }
 }
 @media all and (max-width: 444px) {
-#age {
- background-color: rgb(210, 214, 216);
-  width: 150px;
- height: 30px;
- border-radius: 10%;
- border: 1px grey solid;
+  #age {
+    background-color: rgb(210, 214, 216);
+    width: 150px;
+    height: 30px;
+    border-radius: 10%;
+    border: 1px grey solid;
+  }
+  #pseudo {
+    background-color: rgb(210, 214, 216);
+    width: 150px;
+    height: 30px;
+    border-radius: 10%;
+    border: 1px grey solid;
+  }
+  #email {
+    background-color: rgb(210, 214, 216);
+    width: 150px;
+    height: 30px;
+    border-radius: 10%;
+    border: 1px grey solid;
+  }
+  #password {
+    background-color: rgb(210, 214, 216);
+    width: 150px;
+    height: 30px;
+    border-radius: 10%;
+    border: 1px grey solid;
+  }
+  #modifier {
+    background-color: rgb(205, 73, 100);
+    margin-left: 10px;
+  }
+  .profile {
+    width: 250px;
+    margin-left: 20px;
+  }
 }
-#pseudo {
-  background-color: rgb(210, 214, 216);
-  width: 150px;
- height: 30px;
- border-radius: 10%;
- border: 1px grey solid;
-}
-#email {
-  background-color: rgb(210, 214, 216);
-  width: 150px;
- height: 30px;
- border-radius: 10%;
- border: 1px grey solid;
-}
-#password {
-  background-color: rgb(210, 214, 216);
-  width: 150px;
- height: 30px;
- border-radius: 10%;
- border: 1px grey solid;
-}
-#modifier {
-  background-color:  rgb(205, 73, 100);
- margin-left: 30px;
-}
-.profile {
- width: 250px;
-  margin-left: 20px;
-  
-  
-}
-}
-
 </style>

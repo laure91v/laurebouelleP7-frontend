@@ -5,7 +5,6 @@
       alt="logo gauche"
       title="logo gauche"
     />
-    
 
     <nav id="liensConnections">
       <svg id="burger-menu" viewBox="0 0 100 80" width="25" height="25">
@@ -13,7 +12,7 @@
         <rect y="35" width="100" height="6"></rect>
         <rect y="68" width="100" height="6"></rect>
       </svg>
-      <input type="checkbox" id="burger-menu-checkbox">
+      <input type="checkbox" id="burger-menu-checkbox" />
       <ul>
         <li>
           <router-link id="articles" to="/articles">Les articles</router-link>
@@ -35,9 +34,7 @@
           </div>
         </li>
         <li v-if="storedData.isAdmin">
-          <router-link to="/moderation"
-            >Modération</router-link
-          >
+          <router-link to="/moderation">Modération</router-link>
         </li>
         <li>
           <button @click="logout">> Se déconnecter</button>
@@ -75,9 +72,10 @@ export default {
   display: flex;
   justify-content: space-around;
   height: 102px;
+  width: 100vw;
   background-color: rgb(205, 73, 100);
   box-shadow: 0 2px 4px silver;
-  overflow: hidden;
+  position: relative;
 }
 
 #entete > img {
@@ -164,13 +162,6 @@ nav button {
     visibility: visible;
   }
 
-  #burger-menu-checkbox:checked + ul {
-    box-shadow: -3px 5px 4px silver; 
-    border-bottom-left-radius: 4px;
-    transition: all 0.2s linear;
-    right: 0;
-  }
-  
   nav > ul {
         flex-direction: column;
         background-color: rgb(205, 73, 100);;
@@ -178,8 +169,16 @@ nav button {
         width: 230px;
         top: 85px;
         position: absolute;
-        right: -240px;
+        right: 0;
         z-index: 2;
+        transform: scale(0);
+  }
+
+  #burger-menu-checkbox:checked + ul {
+    box-shadow: -3px 5px 4px silver; 
+    border-bottom-left-radius: 4px;
+    transition: all 0.2s linear;
+    transform: scale(1);
   }
 
   nav li {

@@ -6,7 +6,7 @@
         alt="logo gauche"
         title="logo gauche"
       />
-      
+
       <h1>PAGE D'INSCRIPTION</h1>
     </div>
     <div id="touteLaPartie">
@@ -17,25 +17,21 @@
       <p>Informations personnelles</p>
       <form @submit="signup">
         <p>
-          <label for="pseudo">Choisir un pseudo :</label><br/>
+          <label for="pseudo">Choisir un pseudo :</label><br />
           <input v-model="user.pseudo" type="text" id="pseudo" />
         </p>
-
         <p>
-          <label for="email">Votre adresse mail :</label><br/>
+          <label for="email">Votre adresse mail :</label><br />
           <input v-model="user.email" type="email" id="email" />
         </p>
-
         <p>
-          <label for="password">Choisir un mot de passe :</label><br/>
+          <label for="password">Choisir un mot de passe :</label><br />
           <input v-model="user.password" type="password" id="password" />
         </p>
-
         <p>
-          <label for="age">Votre age (optionnel) :</label><br/>
+          <label for="age">Votre age (optionnel) :</label><br />
           <input v-model="user.age" type="number" id="age" />
         </p>
-
         <input id="seConnecter" type="submit" value="Créer un compte" />
       </form>
       <router-link id="connection" to="/"> > Connection au compte</router-link>
@@ -91,35 +87,34 @@ label {
 }
 #age {
   background-color: rgb(210, 214, 216);
- width: 300px;
- height: 30px;
- border-radius: 10%;
- border: 1px grey solid;
- 
+  width: 300px;
+  height: 30px;
+  border-radius: 10%;
+  border: 1px grey solid;
 }
 #pseudo {
   background-color: rgb(210, 214, 216);
- width: 300px;
- height: 30px;
- border-radius: 10%;
- border: 1px grey solid;
+  width: 300px;
+  height: 30px;
+  border-radius: 10%;
+  border: 1px grey solid;
 }
 #email {
   background-color: rgb(210, 214, 216);
   width: 300px;
- height: 30px;
- border-radius: 10%;
- border: 1px grey solid;
+  height: 30px;
+  border-radius: 10%;
+  border: 1px grey solid;
 }
 #password {
   background-color: rgb(210, 214, 216);
   width: 300px;
- height: 30px;
- border-radius: 10%;
- border: 1px grey solid;
+  height: 30px;
+  border-radius: 10%;
+  border: 1px grey solid;
 }
 #seConnecter {
-  background-color: rgb(205,73,100);
+  background-color: rgb(205, 73, 100);
   width: 250px;
   font-size: 17px;
   text-align: center;
@@ -136,14 +131,13 @@ label {
   color: white;
   margin-top: 60px;
   width: 150px;
-  margin-left:5px;
+  margin-left: 5px;
   margin-bottom: 5px;
 }
 #sous {
   display: flex;
   height: 102px;
-  background-color: rgb(205,73,100);
-
+  background-color: rgb(205, 73, 100);
 }
 #sous img {
   height: 60px;
@@ -156,8 +150,7 @@ h1 {
   color: black;
   margin-left: 100px;
   margin-top: 30px;
-  
-  }
+}
 
 #touteLaPartie {
   display: flex;
@@ -165,11 +158,9 @@ h1 {
   justify-content: center;
   margin-top: 10px;
   margin-left: 250px;
-  margin-right:250px;
+  margin-right: 250px;
   box-shadow: 10px 5px 5px grey;
-  border:grey 1px solid;
-  
-  
+  border: grey 1px solid;
 }
 #touteLaPartie span {
   text-align: center;
@@ -184,112 +175,106 @@ h1 {
 }
 
 @media all and (max-width: 896px) {
-#seConnecter {
-width: 150px;
-  font-size: 17px;
-  text-align: center;
-  margin-left: 100px;
-}
+  #seConnecter {
+    width: 150px;
+    font-size: 17px;
+    text-align: center;
+    margin-left: 100px;
+  }
 }
 @media all and (max-width: 845px) {
- 
-#touteLaPartie {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-right:250px;
-  box-shadow: 10px 5px 5px grey;
-  border:grey 1px solid;
-  width:400px;
-   
-}
-h1 {
-  color: black;
-  margin-left: 30px;
-  margin-top: 30px;
-  font-size: 25px;;
+  #touteLaPartie {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 250px;
+    box-shadow: 10px 5px 5px grey;
+    border: grey 1px solid;
+    width: 400px;
+  }
+  h1 {
+    color: black;
+    margin-left: 30px;
+    margin-top: 30px;
+    font-size: 25px;
   }
 }
 @media all and (max-width: 560px) {
-h1 {
-  color: black;
-  margin-left: 10px;
-  margin-top: 30px;
-  font-size: 25px;;
+  h1 {
+    color: black;
+    margin-left: 10px;
+    margin-top: 30px;
+    font-size: 25px;
   }
-#sous img {
- 
-  height: 40px;
-  padding-left: 10px;
-  padding-right: 5px;
-  width: 185px;
-  padding-top: 15px;
-
-}
+  #sous img {
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 5px;
+    width: 185px;
+    padding-top: 15px;
+  }
 }
 @media all and (max-width: 443px) {
-#age {
-  background-color: rgb(210, 214, 216);
- width: 200px;
- height: 30px;
- border-radius: 10%;
- border: 1px grey solid;
- 
-}
-#pseudo {
-  background-color: rgb(210, 214, 216);
- width: 200px;
- height: 30px;
- border-radius: 10%;
- border: 1px grey solid;
-}
-#email {
-  background-color: rgb(210, 214, 216);
-  width: 200px;
- height: 30px;
- border-radius: 10%;
- border: 1px grey solid;
-}
-#password {
-  background-color: rgb(210, 214, 216);
-  width: 200px;
- height: 30px;
- border-radius: 10%;
- border: 1px grey solid;
-}
-#touteLaPartie {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-right:250px;
-  box-shadow: 10px 5px 5px grey;
-  border:grey 1px solid;
-  width:250px;
-   
-}
-h1 {
-  color: black;
-  margin-left: 5px;
-  margin-top: 30px;
-  font-size: 15px;;
+  #age {
+    background-color: rgb(210, 214, 216);
+    width: 200px;
+    height: 30px;
+    border-radius: 10%;
+    border: 1px grey solid;
+  }
+  #pseudo {
+    background-color: rgb(210, 214, 216);
+    width: 200px;
+    height: 30px;
+    border-radius: 10%;
+    border: 1px grey solid;
+  }
+  #email {
+    background-color: rgb(210, 214, 216);
+    width: 200px;
+    height: 30px;
+    border-radius: 10%;
+    border: 1px grey solid;
+  }
+  #password {
+    background-color: rgb(210, 214, 216);
+    width: 200px;
+    height: 30px;
+    border-radius: 10%;
+    border: 1px grey solid;
+  }
+  #touteLaPartie {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 250px;
+    box-shadow: 10px 5px 5px grey;
+    border: grey 1px solid;
+    width: 250px;
+  }
+  h1 {
+    color: black;
+    margin-left: 5px;
+    margin-top: 30px;
+    font-size: 15px;
   }
   #seConnecter {
-width: 150px;
-  font-size: 17px;
-  text-align: center;
-  margin-left: 50px;
-}
+    width: 150px;
+    font-size: 17px;
+    text-align: center;
+    margin-left: 50px;
+  }
 }
 @media all and (max-width: 355px) {
-h1 {
-  color: black;
-  margin-left: 0;
-  margin-top: 30px;
-  font-size: 12px;;
+  h1 {
+    color: black;
+    margin-left: 0;
+    margin-top: 30px;
+    font-size: 12px;
   }
 }
 </style>

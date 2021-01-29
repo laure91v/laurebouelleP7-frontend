@@ -5,13 +5,22 @@
 
     <div id="post-details-ctnr">
       <h3>{{ post.title }}</h3>
-      
       <p>{{ post.text }}</p>
       <h4>
         - article publié par {{ post.user.pseudo }} le {{ post.createdAt }} -
       </h4>
-      <button v-if="storedData.userId == post.userId" @click='deletePost(post.id)'>Supprimer</button>
-      <button v-if="storedData.userId != post.userId" @click='signalPost(post.id)'>Signaler</button>
+      <button
+        v-if="storedData.userId == post.userId"
+        @click="deletePost(post.id)"
+      >
+        Supprimer
+      </button>
+      <button
+        v-if="storedData.userId != post.userId"
+        @click="signalPost(post.id)"
+      >
+        Signaler
+      </button>
     </div>
 
     <Comments :postId="post.id" />
@@ -54,30 +63,41 @@ export default {
     };
   },
   methods: {
-        signalPost(postId) {
-        AJAX_GET_POST('http://localhost:3000/api/post/signal/' + postId + '/signal/' +this.storedData.userId, 'PUT', null)
-        .then(success => {
+    signalPost(postId) {
+      AJAX_GET_POST(
+        "http://localhost:3000/api/post/signal/" +
+          postId +
+          "/signal/" +
+          this.storedData.userId,
+        "PUT",
+        null
+      )
+        .then((success) => {
           console.log(success);
           alert("signalement fait");
-          
         })
-        .catch(err => {
-          console.log('Une erreur est survenue !', err);
+        .catch((err) => {
+          console.log("Une erreur est survenue !", err);
         });
-      },
-      deletePost(postId) {
-        AJAX_GET_POST('http://localhost:3000/api/post/delete/' + postId + '/' +this.storedData.userId, 'DELETE', null)
-        
-        .then(success => {
+    },
+    deletePost(postId) {
+      AJAX_GET_POST(
+        "http://localhost:3000/api/post/delete/" +
+          postId +
+          "/" +
+          this.storedData.userId,
+        "DELETE",
+        null
+      )
+        .then((success) => {
           console.log(success);
           alert("article supprimé");
-         this.$router.push({ path: '/articles' });
+          this.$router.push({ path: "/articles" });
         })
-        .catch(err => {
-          console.log('Une erreur est survenue !', err);
+        .catch((err) => {
+          console.log("Une erreur est survenue !", err);
         });
-      },
-      
+    },
   },
   computed: {},
 };
@@ -89,33 +109,31 @@ article {
   margin: 10px;
   padding: 10px;
   background-color: #f8f8f8;
-
 }
 #post-details-ctnr p {
   height: auto;
-  width: 700px;
+  width: auto;
   background-color: rgb(202, 181, 181);
   padding: 20px;
   border-radius: 10px;
   margin-left: 20px;
 }
 #post-details-ctnr h4 {
-font-size: 12px;
+  font-size: 12px;
   margin-top: 30px;
   margin-left: 20px;
 }
 #post-details-ctnr h3 {
-
   margin-left: 20px;
 }
-#post-details-ctnr button{
-background-color: rgb(247, 117, 117);
+#post-details-ctnr button {
+  background-color: rgb(247, 117, 117);
 }
 
 @media all and (max-width: 892px) {
-#post-details-ctnr p {
-height: auto;
-  width: auto;
-
-}}
+  #post-details-ctnr p {
+    height: auto;
+    width: auto;
+  }
+}
 </style>
