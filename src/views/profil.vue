@@ -30,7 +30,7 @@
         <p v-if="errorMessages[2]" class="invalid-field-msg">
           {{ errorMessages[2] }}
         </p>
-        <div v-if="user.newPassword">
+        <div id="passwordConfirmTotal" v-if="user.newPassword">
           <label for="password-confirm"
             >Nouveau mot de passe (confirmation)</label
           >
@@ -323,6 +323,20 @@ form label {
 #supprimerDef {
   background-color: rgb(205, 73, 100);
 }
+#password-confirm {  
+   background-color: rgb(210, 214, 216);
+  width: 300px;
+  height: 30px;
+  border-radius: 10%;
+  border: 1px grey solid;
+}
+#passwordConfirmTotal {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+
+}
+
 @media all and (max-width: 847px) {
   .profile {
     margin-left: 50px;
@@ -371,6 +385,13 @@ form label {
   .profile {
     width: 250px;
     margin-left: 20px;
+  }
+  #password-confirm {
+    background-color: rgb(210, 214, 216);
+    width: 150px;
+    height: 30px;
+    border-radius: 10%;
+    border: 1px grey solid;
   }
 }
 </style>
